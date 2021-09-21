@@ -4,140 +4,153 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
+    android:paddingHorizontal="10dp"
     tools:context=".MainActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        // Layout para la carga de datos.
-
-        <LinearLayout
-            android:id="@+id/layoutCarga"
+        <ScrollView
+            android:id="@+id/scrollPantalla"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/layoutResultados"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_alignParentTop="true"
+            android:layout_above="@id/layoutBotones">
 
-            // Layout IVA 21%.
-
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="match_parent">
 
-                <TextView
-                    style="@style/TextoNormal"
+                // Layout para la carga de datos.
+
+                <LinearLayout
+                    android:id="@+id/layoutCarga"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="IVA 21% "></TextView>
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toTopOf="@+id/layoutResultados"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-                <EditText
-                    android:id="@+id/editTextIVA21"
-                    android:layout_width="match_parent"
+                    // Layout IVA 21%.
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/TextoNormal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="IVA 21% "></TextView>
+
+                        <EditText
+                            android:id="@+id/editTextIVA21"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:inputType="numberDecimal" />
+                    </LinearLayout>
+
+                    // Layout IVA cigarrillos.
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/TextoNormal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="IVA Cigarrillos "></TextView>
+
+                        <EditText
+                            android:id="@+id/editTextIVACigarrillos"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:inputType="numberDecimal" />
+                    </LinearLayout>
+
+                    // Layout monto total.
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/TextoNormal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Monto Total "></TextView>
+
+                        <EditText
+                            android:id="@+id/editTextMontoTotal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:inputType="numberDecimal" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                // Layout para resultados.
+
+                <LinearLayout
+                    android:id="@+id/layoutResultados"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="numberDecimal" />
-            </LinearLayout>
+                    android:layout_below="@+id/layoutCarga"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical"
+                    android:padding="10dp">
 
-            // Layout IVA cigarrillos.
+                    // Mostrar producto al 21%.
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/txtProducto21"
+                        style="@style/TextoMediano"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text=""></TextView>
 
-                <TextView
-                    style="@style/TextoNormal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="IVA Cigarrillos "></TextView>
+                    // Mostrar cigarrillos
 
-                <EditText
-                    android:id="@+id/editTextIVACigarrillos"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="numberDecimal" />
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/txtCigarrillos"
+                        style="@style/TextoMediano"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text=""></TextView>
 
-            // Layout monto total.
+                    // Mostrar exentas.
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/txtExentas"
+                        style="@style/TextoMediano"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text=""></TextView>
 
-                <TextView
-                    style="@style/TextoNormal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Monto Total "></TextView>
+                </LinearLayout>
 
-                <EditText
-                    android:id="@+id/editTextMontoTotal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="numberDecimal" />
-            </LinearLayout>
 
-        </LinearLayout>
-
-        // Layout para resultados.
-
-        <LinearLayout
-            android:id="@+id/layoutResultados"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/layoutBotones"
-            android:layout_below="@+id/layoutCarga"
-            android:layout_centerInParent="true"
-            android:orientation="vertical"
-            android:padding="10dp">
-
-            // Mostrar producto al 21%.
-
-            <TextView
-                android:id="@+id/txtProducto21"
-                style="@style/TextoMediano"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text=""></TextView>
-
-            // Mostrar cigarrillos
-
-            <TextView
-                android:id="@+id/txtCigarrillos"
-                style="@style/TextoMediano"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text=""></TextView>
-
-            // Mostrar exentas.
-
-            <TextView
-                android:id="@+id/txtExentas"
-                style="@style/TextoMediano"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text=""></TextView>
-
-        </LinearLayout>
-
+            </RelativeLayout>
+        </ScrollView>
         // Layout botones
 
         <RelativeLayout
@@ -160,7 +173,6 @@
                 android:layout_alignParentEnd="true"
                 android:text="Calcular" />
         </RelativeLayout>
-
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

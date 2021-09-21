@@ -8,10 +8,13 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
+    ScrollView scrollPantalla;
 
     EditText editTextIva21;
     EditText editTextIvaCigarrillos;
@@ -28,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        scrollPantalla = findViewById(R.id.scrollPantalla);
 
         editTextIva21 = findViewById(R.id.editTextIVA21);
         editTextIvaCigarrillos = findViewById(R.id.editTextIVACigarrillos);
@@ -105,7 +110,8 @@ public class MainActivity extends AppCompatActivity {
         txtCigarrillos.setText("Cigarrillos : " + cigarrillos);
         txtExentas.setText("Exentas : " + exentas);
 
-        btnLimpiar.requestFocus();
+        //editTextIva21.requestFocus();
+        scrollPantalla.smoothScrollTo(txtExentas.getScrollX(),txtExentas.getScrollY()+150);
 
     }
 
